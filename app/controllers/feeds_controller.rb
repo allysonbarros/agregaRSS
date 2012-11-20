@@ -43,6 +43,7 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(params[:feed])
+    @feed.user = current_user
 
     respond_to do |format|
       if @feed.save
